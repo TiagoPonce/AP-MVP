@@ -7,13 +7,13 @@ export default function Dashboard() {
         <div className="w-screen h-screen">
 
             <Header />
-            <div className="flex h-screen w-screen">
+            <div className="flex h-full w-full">
                 <SideBar />
-                <div className="w-full">
-                    <main>
-
-                    </main>
-                </div>
+                <main className="w-screen h-screen bg-black">
+                    <div className="w-full h-14 bg-[#A4BBDD] mt-20 flex items-center">
+                        <p className="text-base ml-20">Dashboard</p>
+                    </div>
+                </main>
             </div>
             <Footer />
         </div>
