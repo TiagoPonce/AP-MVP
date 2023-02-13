@@ -1,9 +1,12 @@
 import Footer from "@/components/Footer";
+import FormsComponent from "@/components/FormsComponent";
 import Header from "@/components/Header";
 import SideBar from "@/components/SideBar";
 import TableCompany from "@/components/TableCompany";
+import React, { useState } from "react";
 
 export default function Dashboard() {
+    const [active, setActive] = useState("default");
     return (
         <div className="w-screen h-screen">
 
@@ -14,7 +17,8 @@ export default function Dashboard() {
                     <div className="w-full h-14 bg-[#A4BBDD] mt-20 flex items-center">
                         <p className="text-base ml-20">Dashboard</p>
                     </div>
-                    <TableCompany/>
+                    {/* <TableCompany/> */}
+                    <FormsComponent />
                 </main>
             </div>
             <Footer />
