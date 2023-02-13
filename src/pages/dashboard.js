@@ -1,29 +1,31 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SideBar from "@/components/SideBar";
+import { useSession } from "next-auth/react";
 import { useEffect } from "react";
+import Router from 'next/router';
 
 export default function Dashboard() {
+    const { status, data} = useSession();
 
     useEffect(() => {
-        fetch('api/users')
-            .then(res => res.json())
-                .then(data => console.log(data))
-    }, []);
+        if (status === "unauthenticated") Router.replace('/');
+    }, [status]);
 
-    return (
-        <div className="w-screen h-screen">
+    if (status === "authenticated")
+        return (
+            <div className="w-screen h-screen">
 
-            <Header />
-            <div className="flex h-screen w-screen">
-                <SideBar />
-                <div className="w-full">
-                    <main>
+                <Header />
+                <div className="flex h-screen w-screen">
+                    <SideBar />
+                    <div className="w-full">
+                        <main>
 
-                    </main>
+                        </main>
+                    </div>
                 </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
-    )
+        )
 }
