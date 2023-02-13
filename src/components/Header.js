@@ -18,7 +18,7 @@ export default function Header() {
             <div className="flex">
                 <p className="text-slate-600 text-bold mr-5">Bem-vindo,user!</p>
                 <button
-                    onClick={ () => signOut({ callbackUrl: '/' })}
+                    onClick={ () => signOut({ redirect: false })}
                     className='w-24 h-7 border-2 border-solid border-slate-600 rounded-lg flex justify-center items-center p-2'
                 >
                     <Image
