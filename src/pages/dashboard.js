@@ -4,6 +4,7 @@ import SideBar from "@/components/SideBar";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import Router from 'next/router';
+import TableCompany from "@/components/TableCompany";
 
 export default function Dashboard() {
     const { status, data} = useSession();
@@ -21,7 +22,10 @@ export default function Dashboard() {
                     <SideBar />
                     <div className="w-full">
                         <main>
-
+                          <div className="w-full h-14 bg-[#A4BBDD] mt-20 flex items-center">
+                              <p className="text-base ml-20">Dashboard</p>
+                          </div>
+                          <TableCompany/>
                         </main>
                     </div>
                 </div>
