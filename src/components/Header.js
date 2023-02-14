@@ -1,6 +1,7 @@
 import LogoAptd from 'public/logo-aptd.png'
 import Image from 'next/image'
 import logOut from 'public/log-out.png'
+import { signOut } from 'next-auth/react'
 
 export default function Header() {
 
@@ -17,7 +18,8 @@ export default function Header() {
             <div className="flex">
                 <p className="text-slate-600 text-bold mr-5">Bem-vindo,user!</p>
                 <button
-                className='w-24 h-7 border-2 border-solid border-slate-600 rounded-lg flex justify-center items-center p-2'
+                    onClick={ () => signOut({ redirect: false })}
+                    className='w-24 h-7 border-2 border-solid border-slate-600 rounded-lg flex justify-center items-center p-2'
                 >
                     <Image
                         src={logOut}
