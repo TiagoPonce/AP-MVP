@@ -3,11 +3,14 @@ import PlusSquare from 'public/plus-square.png'
 import ExternalLink from 'public/external-link.png'
 
 export default function TableCompany() {
+
+
     return (
         <div className="h-[222px] bg-white rounded-lg m-10 flex flex-col gap-8 p-2">
             <div className="flex w-full items-center justify-between pl-10 pr-10 pb-2 border-b-black border-solid border-b-2">
                 <p>Empresas</p>
                 <button
+                onClick={renderForms}
                 className="w-[214px] h-[44px] border-solid border-2 hover:bg-slate-100 border-slate-600 rounded-full flex items-center justify-center"
                 >
                     <Image

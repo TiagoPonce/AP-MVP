@@ -1,12 +1,15 @@
 import Footer from "@/components/Footer";
+import FormsComponent from "@/components/FormsComponent";
 import Header from "@/components/Header";
 import SideBar from "@/components/SideBar";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import Router from 'next/router';
 import TableCompany from "@/components/TableCompany";
+import React, { useState } from "react";
 
 export default function Dashboard() {
+
     const { status, data} = useSession();
 
     useEffect(() => {
