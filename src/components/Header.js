@@ -2,8 +2,11 @@ import LogoAptd from 'public/logo-aptd.png'
 import Image from 'next/image'
 import logOut from 'public/log-out.png'
 import { signOut } from 'next-auth/react'
+import { useSession } from "next-auth/react";
 
 export default function Header() {
+    const { data  } = useSession();
+    console.log(data)
 
     return (
         <header className="w-screen fixed border-2 z-20 border-b-slate-600 h-20 bg-white flex justify-between items-center p-4">
@@ -16,7 +19,7 @@ export default function Header() {
             />
             </div>
             <div className="flex">
-                <p className="text-slate-600 text-bold mr-5">Bem-vindo,user!</p>
+                <p className="text-slate-600 text-bold mr-5">Bem-vindo, {data.user.name}!</p>
                 <button
                     onClick={ () => signOut({ redirect: false })}
                     className='w-24 h-7 border-2 border-solid border-slate-600 rounded-lg flex justify-center items-center p-2'

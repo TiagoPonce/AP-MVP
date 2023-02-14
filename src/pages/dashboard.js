@@ -9,8 +9,7 @@ import TableCompany from "@/components/TableCompany";
 import React, { useState } from "react";
 
 export default function Dashboard() {
-
-    const { status, data} = useSession();
+    const { status } = useSession();
 
     useEffect(() => {
         if (status === "unauthenticated") Router.replace('/');
@@ -23,7 +22,7 @@ export default function Dashboard() {
                 <Header />
                 <div className="flex h-screen w-screen">
                     <SideBar />
-                    <div className="w-full">
+                    <div className="w-full bg-[#C1D3ED]/30">
                         <main>
                           <div className="w-full h-14 bg-[#A4BBDD] mt-20 flex items-center">
                               <p className="text-base ml-20">Dashboard</p>
