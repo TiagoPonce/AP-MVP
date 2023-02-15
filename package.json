@@ -9,9 +9,8 @@
     "lint": "next lint"
     
   },
-  "type": "module",
   "prisma": {
-    "seed": "node prisma/seeds/seed.js"
+    "seed": "node prisma/seed.mjs"
   },
   "dependencies": {
     "@next/font": "13.1.6",
