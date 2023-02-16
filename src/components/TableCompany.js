@@ -10,8 +10,8 @@ export default function TableCompany() {
             <div className="flex w-full items-center justify-between pl-10 pr-10 pb-2 border-b-black border-solid border-b-2">
                 <p>Empresas</p>
                 <button
-                onClick={renderForms}
-                className="w-[214px] h-[44px] border-solid border-2 hover:bg-slate-100 border-slate-600 rounded-full flex items-center justify-center"
+                    /* onClick={renderForms} */
+                    className="w-[214px] h-[44px] border-solid border-2 hover:bg-slate-100 border-slate-600 rounded-full flex items-center justify-center"
                 >
                     <Image
                         src={PlusSquare}
