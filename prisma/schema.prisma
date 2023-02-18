@@ -27,7 +27,7 @@ model Company {
   email     String
   user      User     @relation(fields: [userId], references: [id])
   userId    Int
-  lieaders  Leader[]
+  leaders   Leader[]
   employees Employee[]
 }
 
