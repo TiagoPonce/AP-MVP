@@ -32,6 +32,80 @@ function Tests() {
           <div className='border-b-2'>
             <h1 className="text-slate-600 tracking-widest">Lider: Tiago Ponce - tiago@gmail.com</h1>
           </div>
+          <div className='p-2 gap-2 flex flex-col items-center'>
+              <div>
+                <h1 className="text-slate-600 text-lg tracking-widest">Lista de Funcionarios</h1>
+              </div>
+
+              <div className='w-full'>
+                <ul className='mt-2 flex text-lg gap- text-slate-800 tracking-widest justify-around'>
+                  <li className='flex'>
+                  <Image 
+                    src={checkSquare}
+                    className='mr-4'
+                  />
+                    Tiago Ponce</li>
+                  <li>tiagocponce@gmail.com</li>
+                  <li>Não enviado</li>
+                  <li>Pendente</li>
+                </ul>
+                <ul className='mt-2 flex text-lg text-slate-800 tracking-widest justify-around'>
+                <li className='flex'>
+                  <Image 
+                    src={checkSquare}
+                    className='mr-4'
+                  />
+                    Tiago Ponce</li>
+                  <li>tiagocponce@gmail.com</li>
+                  <li>Não enviado</li>
+                  <li>Pendente</li>
+                </ul>
+                <ul className='mt-2 flex text-lg text-slate-800 tracking-widest justify-around'>
+                  <li className='flex'>
+                  <Image 
+                    src={checkSquare}
+                    className='mr-4'
+                  />
+                    Tiago Ponce</li>
+                  <li>tiagocponce@gmail.com</li>
+                  <li>Não enviado</li>
+                  <li>Pendente</li>
+                </ul>
+                <ul className='mt-2 flex text-lg text-slate-800 tracking-widest justify-around'>
+                  <li className='flex'>
+                  <Image 
+                    src={checkSquare}
+                    className='mr-4'
+                  />
+                    Tiago Ponce</li>
+                  <li>tiagocponce@gmail.com</li>
+                  <li>Não enviado</li>
+                  <li>Pendente</li>
+                </ul>
+                <ul className='mt-2 flex text-lg text-slate-800 tracking-widest justify-around'>
+                  <li className='flex'>
+                  <Image 
+                    src={checkSquare}
+                    className='mr-4'
+                  />
+                    Tiago Ponce</li>
+                  <li>tiagocponce@gmail.com</li>
+                  <li>Não enviado</li>
+                  <li>Pendente</li>
+                </ul>
+                <ul className='mt-2 flex text-lg text-slate-800 tracking-widest justify-around'>
+                  <li className='flex'>
+                  <Image 
+                    src={checkSquare}
+                    className='mr-4'
+                  />
+                    Tiago Ponce</li>
+                  <li>tiagocponce@gmail.com</li>
+                  <li>Não enviado</li>
+                  <li>Pendente</li>
+                </ul>
+              </div>
+          </div>
         </div>
     </div>
   )

@@ -9,10 +9,26 @@ import TableCompany from "@/components/TableCompany";
 import React, { useState } from "react";
 import Modal from "@/components/Modal";
 import Tests from "@/components/Tests";
+import AppContext from "@/context/AppContext";
+import { useContext } from "react";
+
 
 export default function Dashboard() {
     const { status } = useSession();
     const [showModal, setShowModal] = useState(false);
+    
+    const context = useContext(AppContext);
+    
+    function renderMenu() {
+        const { renderPage } = context;
+
+        if (renderPage === "testes") {
+            return <Tests />
+        } else if (renderPage === "empresas") {
+            return <TableCompany />
+        }
+        return <TableCompany />
+    }
 
     useEffect(() => {
         if (status === "unauthenticated") Router.replace('/');
@@ -32,7 +48,7 @@ export default function Dashboard() {
                               <p className="text-base ml-20">Dashboard</p>
                           </div>
                           <div className="w-full h-full flex justify-center mt-14">
-                              <Tests />
+                              { renderMenu() }
                           </div>
                         </main>
                     </div>
