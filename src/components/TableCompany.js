@@ -1,16 +1,18 @@
 import Image from "next/image"
 import PlusSquare from 'public/plus-square.png'
 import ExternalLink from 'public/external-link.png'
+import AppContext from "../context/AppContext"
+import { useContext } from "react"
 
 export default function TableCompany() {
-
+    const context = useContext(AppContext);
 
     return (
-        <div className="h-[222px] bg-white rounded-lg m-10 flex flex-col gap-8 p-2">
+        <div className="h-[400px] w-[1000px] bg-white rounded-lg m-10 flex flex-col gap-8 p-2">
             <div className="flex w-full items-center justify-between pl-10 pr-10 pb-2 border-b-black border-solid border-b-2">
                 <p>Empresas</p>
                 <button
-                onClick={renderForms}
+                onClick={() => context.setShowModal(true)}
                 className="w-[214px] h-[44px] border-solid border-2 hover:bg-slate-100 border-slate-600 rounded-full flex items-center justify-center"
                 >
                     <Image
@@ -34,7 +36,9 @@ export default function TableCompany() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="h-14 hover:bg-[#C1D3ED]/30 cursor-pointer border-solid border-b border-[#9D9A9A]">
+                    <tr className="h-14 hover:bg-[#C1D3ED]/30 cursor-pointer border-solid border-b border-[#9D9A9A]"
+                    onClick={() => context.setRenderPage("testes")}
+                    >
                         <td className="text-center">Info Tech</td>
                         <td className="text-center">1</td>
                         <td className="text-center">5</td>
