@@ -16,3 +16,41 @@ model User {
   name  String
   password String
 }
+
+model Coach {
+  id Int @id @default(autoincrement())
+  email String @unique
+  name String
+  companys Company[]
+}
+
+model Company {
+  id Int @id @default(autoincrement())
+  name String @unique
+  createdAt DateTime @default(now())
+  telefone String
+  cnpj String
+  coach Coach @relation(fields: [coachId], references: [id])
+  coachId Int
+  leaders Leader[]
+}
+
+model Leader {
+  id Int @id @default(autoincrement())
+  email String @unique
+  name String
+  role String
+  company Company @relation(fields: companyLeader, references: [name])
+  companyLeader String
+  employers Employers[]
+}
+
+model Employers {
+  id Int @id @default(autoincrement())
+  firstName String
+  lastName String
+  email String @unique
+  telefone String
+  nameLeader String
+  lider Leader @relation(fields: nameLeader, references: [email])
+}
