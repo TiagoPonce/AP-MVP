@@ -17,6 +17,7 @@ export default async function handler(req, res) {
                     name: true,
                     email: true,
                     password: false,
+                    role: true,
                     companies: {
                         select: {
                             name: true

@@ -6,13 +6,13 @@ import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import Router from 'next/router';
 import TableCompany from "@/components/TableCompany";
-import React, { useState } from "react";
 
 export default function Dashboard() {
-    const { status } = useSession();
+    const { status, data } = useSession();
 
     useEffect(() => {
         if (status === "unauthenticated") Router.replace('/');
+        // if (data.user.role === "admin") Router.replace('/admin')
     }, [status]);
 
     if (status === "authenticated")
