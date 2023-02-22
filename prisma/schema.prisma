@@ -94,4 +94,3 @@ enum OrganizationalRelationship {
   Peer @map("Peer")
   DirectReport @map("Direct Report")
   Others @map("Others")
-}

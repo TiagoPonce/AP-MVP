@@ -1,10 +1,19 @@
 import '@/styles/globals.css'
 import { SessionProvider } from 'next-auth/react'
+import AppContext from '@/context/AppContext';
+import { useState, createContext } from 'react'
+
+
+
 
 export default function App({ Component, pageProps }) {
+  const [showModal, setShowModal] = useState(false);
+  const [renderPage, setRenderPage] = useState('')
   return (
-    <SessionProvider session={ pageProps.session }>
-      <Component {...pageProps} />
-    </SessionProvider>
+    <AppContext.Provider value={{showModal, setShowModal, renderPage, setRenderPage}}>
+      <SessionProvider session={ pageProps.session }>
+        <Component {...pageProps} />
+      </SessionProvider>
+    </AppContext.Provider> 
   )
 }

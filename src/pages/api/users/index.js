@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client"
+import prisma from "@/libs/prisma";
 import bcrypt from "bcryptjs"
 import { getToken } from "next-auth/jwt"
 

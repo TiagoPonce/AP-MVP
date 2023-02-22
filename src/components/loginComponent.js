@@ -47,7 +47,7 @@ export default function Login() {
                             aria-invalid={ errors.email ? "true" : "false" }
                             type="email"
                             placeholder="email"
-                            className=' p-2 border-solid focus:outline-none border-2 border-b-[#BDBDBD] border-t-0 border-r-0 border-l-0'
+                            className=' p-2 border-solid focus:outline-none border-2 border-b-[#BDBDBD] rounded-lg border-t-0 border-r-0 border-l-0'
                         />
                         {errors.email?.type === 'required' && <p>Email is required</p>}
                          <input 
@@ -61,7 +61,7 @@ export default function Login() {
                             aria-invalid={ errors.password ? "true" :  "false" }
                             type="password"
                             placeholder="password"
-                            className='p-2 border-solid border-2 focus:outline-none border-b-[#BDBDBD] border-t-0 border-r-0 border-l-0'
+                            className='p-2 border-solid border-2 focus:outline-none border-b-[#BDBDBD] rounded-lg border-t-0 border-r-0 border-l-0'
                         />
                         {errors.password?.type === 'required' && <p role="alert">Password is required</p>}
                         {errors.password?.type === 'minLength' && <p role="alert">{errors.password.message}</p>}
