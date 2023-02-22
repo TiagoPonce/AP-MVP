@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { Fragment, useEffect } from "react";
 import Router from 'next/router';
 import TableCompany from "@/components/TableCompany";
+
 import React, { useState } from "react";
 import Modal from "@/components/Modal";
 import Tests from "@/components/Tests";
@@ -14,7 +15,7 @@ import { useContext } from "react";
 
 
 export default function Dashboard() {
-    const { status } = useSession();
+    const { status, data } = useSession();
     const [showModal, setShowModal] = useState(false);
     
     const context = useContext(AppContext);
@@ -32,6 +33,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         if (status === "unauthenticated") Router.replace('/');
+        // if (data.user.role === "admin") Router.replace('/admin')
     }, [status]);
 
     if (status === "authenticated")

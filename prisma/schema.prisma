@@ -11,46 +11,86 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String
-  password String
-}
-
-model Coach {
-  id Int @id @default(autoincrement())
-  email String @unique
-  name String
-  companys Company[]
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  name      String
+  password  String
+  role      Role     @default(coach)
+  companies Company[]
 }
 
 model Company {
-  id Int @id @default(autoincrement())
-  name String @unique
-  createdAt DateTime @default(now())
-  telefone String
-  cnpj String
-  coach Coach @relation(fields: [coachId], references: [id])
-  coachId Int
-  leaders Leader[]
+  id        Int @id @default(autoincrement())
+  name      String
+  country   String
+  city      String
+  email     String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  leaders   Leader[]
+  employees Employee[]
 }
 
 model Leader {
-  id Int @id @default(autoincrement())
-  email String @unique
-  name String
-  role String
-  company Company @relation(fields: companyLeader, references: [name])
-  companyLeader String
-  employers Employers[]
+  id                    Int     @id @default(autoincrement())
+  firstName             String
+  lastName              String
+  age                   Int
+  gender                Gender  @default(Female)
+  ethnicBackground      EthnicBackground   @default(American)
+  country               String
+  city                  String
+  email                 String
+  Phone                 String
+  surveyLanguage        SurveyLanguage  @default(Portugues)
+  functionalArea        String
+  OrganizationalLevel   String
+  leadershipGrowthArea1 String
+  leadershipGrowthArea2 String
+  company Company       @relation(fields: [companyId], references: [id])
+  companyId             Int
 }
 
-model Employers {
-  id Int @id @default(autoincrement())
-  firstName String
-  lastName String
-  email String @unique
-  telefone String
-  nameLeader String
-  lider Leader @relation(fields: nameLeader, references: [email])
+model Employee {
+  id    Int   @id @default(autoincrement())
+  firstName   String
+  lastName    String
+  country     String
+  city        String
+  email       String
+  Phone       String
+  surveyLanguage    SurveyLanguage  @default(Portugues)
+  organizationalRelationship    OrganizationalRelationship  @default(Manager)
+  company Company       @relation(fields: [companyId], references: [id])
+  companyId             Int
 }
+
+enum Role {
+  admin
+  coach
+}
+
+enum Gender {
+  Female
+  Male
+}
+
+enum EthnicBackground {
+  American @map("American Indian or Alaska Native")
+  Asian @map("Asian")
+  BlackAfricanAmerican @map("Black or African American")
+  HispanicLatino @map("Hispanic or Latino")
+  NativeHawaiianPacificIslander @map("Native Hawaiian or Other Pacific Islander")
+  White @map("White")
+}
+
+
+enum SurveyLanguage {
+  Portugues @map("Português(Brasil)")
+}
+
+enum OrganizationalRelationship {
+  Manager @map("Manager")
+  Peer @map("Peer")
+  DirectReport @map("Direct Report")
+  Others @map("Others")
