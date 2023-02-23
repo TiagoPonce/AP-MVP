@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 import { SessionProvider } from 'next-auth/react'
 import AppContext from '@/context/AppContext';
 import { useState, createContext } from 'react'
+import '@/axios/global.js'
 
 
 

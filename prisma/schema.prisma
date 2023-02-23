@@ -21,18 +21,18 @@ model Coach {
   id Int @id @default(autoincrement())
   email String @unique
   name String
-  companys Company[]
+  // companys Company[]
 }
 
 model Company {
   id Int @id @default(autoincrement())
   name String @unique
-  createdAt DateTime @default(now())
+  // createdAt DateTime @default(now())
   telefone String
   cnpj String
-  coach Coach @relation(fields: [coachId], references: [id])
-  coachId Int
-  leaders Leader[]
+  // coach Coach @relation(fields: [coachId], references: [id])
+  // coachId Int
+  // leaders Leader[]
 }
 
 model Leader {
@@ -40,7 +40,7 @@ model Leader {
   email String @unique
   name String
   role String
-  company Company @relation(fields: companyLeader, references: [name])
+  // company Company @relation(fields: companyLeader, references: [name])
   companyLeader String
   employers Employers[]
 }

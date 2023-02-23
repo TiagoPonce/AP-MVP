@@ -1,25 +1,18 @@
 import { useState } from 'react';
+import axiosInstance from '@/axios/instance';
 
 export default function FormsComponent() {
     const [formCompany, setFormCompany] = useState({name: '', telefone: '', cnpj: ''})
 
-    async function create(data) {
-        try {
-            fetch('http://localhost:3000/api/create', {
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'apllication/json'
-            },
-            method: 'POST'
-        }).then(() => setFormCompany({name: '', telefone: '', cnpj: ''}))
-        } catch(error) {
-            console.log(error);
-        }
+
+    const createCompany = async (data) => {
+        await axiosInstance.post(`/create`, data).then((response) => console.log(response))
     }
 
     const handleSubmit = async (data) => {
+        console.log(data)
         try {
-            create(data)
+            createCompany(data)
         } catch (error) {
 
         }
