@@ -2,20 +2,19 @@ import prisma from "@/libs/prisma";
 
 export default async function handler(req, res) {
     const { method } = req;
-    const { name, telefone, cnpj } = req.body;
-    console.log("este eh o req body", req.body);
-    console.log(telefone)
-    console.log(cnpj)
-
+    const { userId, name, email, country, city } = req.body;
+    
     switch(method) {
         case 'POST':
 
             try {
                 const company = await prisma.company.create({
                     data:  {
-                        name: name,
-                        telefone: telefone,
-                        cnpj: cnpj,
+                        userId,
+                        name,
+                        email,
+                        country,
+                        city
                     }
                 })
                 return res.status(200).json({message: 'Created'})

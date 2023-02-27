@@ -23,6 +23,7 @@ export default async function handler(req, res) {
 
             return res.status(200).json({ data: companies })
         } else if (method === "POST") {
+            console.log(body);
             const { body } = req
             const company = await prisma.company.create({
                 data: body

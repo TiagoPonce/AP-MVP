@@ -12,6 +12,7 @@ import Modal from "@/components/Modal";
 import Tests from "@/components/Tests";
 import AppContext from "@/context/AppContext";
 import { useContext } from "react";
+import axiosInstance from "@/axios/instance";
 
 
 export default function Dashboard() {

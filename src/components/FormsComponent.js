@@ -1,27 +1,27 @@
 import { useState } from 'react';
 import axiosInstance from '@/axios/instance';
+import { useSession } from "next-auth/react";
 
 export default function FormsComponent() {
-    const [formCompany, setFormCompany] = useState({name: '', telefone: '', cnpj: ''})
+    const { data } = useSession();
+    const [formCompany, setFormCompany] = useState({userId: data.user.id, name: '', email: '', country: '', city: ''})
 
 
     const createCompany = async (data) => {
-        await axiosInstance.post(`/create`, data).then((response) => console.log(response))
+        axiosInstance.post('/create', data).then((response) => console.log(response))
     }
 
     const handleSubmit = async (data) => {
-        console.log(data)
         try {
-            createCompany(data)
+            await createCompany(data)
         } catch (error) {
-
-        }
+        }   
     }
 
     return (
         <div className="forms w-full bg-white rounded-3xl">
             <form onSubmit={ e => {
-                e.preventDefault()
+                // e.preventDefault()
                 handleSubmit(formCompany)
             }} className="h-full w-full border-2 bg-[#F8F7F7] p-2">
                 <h1 className="text-slate-400 font-bold text-sm">Cadastrar empresa</h1>
@@ -38,30 +38,8 @@ export default function FormsComponent() {
                     <input 
                         type="text"
                         className="border-solid focus:outline-none border-2 border-b-[#BDBDBD] border-t-0 border-r-0 border-l-0"
-                        placeholder="Nome fantasia"
-                        ></input>
-                    </div>
-                    <div>
-                    <input 
-                        type="text"
-                        className="border-solid focus:outline-none border-2 border-b-[#BDBDBD] border-t-0 border-r-0 border-l-0"
-                        placeholder="cnpj"
-                        onChange={e => setFormCompany({...formCompany, cnpj: e.target.value})}
-                        ></input>
-                    </div>
-                    <div>
-                    <input 
-                        type="text"
-                        className="border-solid focus:outline-none border-2 border-b-[#BDBDBD] border-t-0 border-r-0 border-l-0"
-                        placeholder="telefone"
-                        onChange={e => setFormCompany({...formCompany, telefone: e.target.value})}
-                        ></input>
-                    </div>
-                    <div>
-                    <input 
-                        type="text"
-                        className="border-solid focus:outline-none border-2 border-b-[#BDBDBD] border-t-0 border-r-0 border-l-0"
                         placeholder="email"
+                        onChange={e => setFormCompany({...formCompany, email: e.target.value})}
                         ></input>
                     </div>
                 </div>
@@ -72,21 +50,8 @@ export default function FormsComponent() {
                             <input 
                             type="text"
                             className="border-solid focus:outline-none border-2 border-b-[#BDBDBD] border-t-0 border-r-0 border-l-0"
-                            placeholder="endereço"
-                            ></input>
-                        </div>
-                        <div>
-                            <input 
-                            type="text"
-                            className="border-solid focus:outline-none border-2 border-b-[#BDBDBD] border-t-0 border-r-0 border-l-0"
-                            placeholder="bairro"
-                            ></input>
-                        </div>
-                        <div>
-                            <input 
-                            type="text"
-                            className="border-solid focus:outline-none border-2 border-b-[#BDBDBD] border-t-0 border-r-0 border-l-0"
                             placeholder="cidade"
+                            onChange={e => setFormCompany({...formCompany, city: e.target.value})}
                             ></input>
                         </div>
                         <div>
@@ -94,13 +59,7 @@ export default function FormsComponent() {
                             type="text"
                             className="border-solid focus:outline-none border-2 border-b-[#BDBDBD] border-t-0 border-r-0 border-l-0"
                             placeholder="Estado"
-                            ></input>
-                        </div>
-                        <div>
-                            <input 
-                            type="text"
-                            className="border-solid focus:outline-none border-2 border-b-[#BDBDBD] border-t-0 border-r-0 border-l-0"
-                            placeholder="cep"
+                            onChange={e => setFormCompany({...formCompany, country: e.target.value})}
                             ></input>
                         </div>
                     </div>
@@ -108,7 +67,8 @@ export default function FormsComponent() {
                 <button
                 type="submit"
                 className='h-[60px] w-[200px] rounded-3xl bg-slate-900 text-white text-2xl '
-                >Adcionar empresa</button>
+                >Adcionar empresa
+                </button>
              </form>
         </div>
     )
