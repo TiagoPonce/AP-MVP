@@ -37,16 +37,14 @@ model Leader {
   lastName              String
   age                   Int
   gender                Gender  @default(Female)
-  ethnicBackground      EthnicBackground   @default(American)
   country               String
   city                  String
   email                 String
-  Phone                 String
-  surveyLanguage        SurveyLanguage  @default(Portugues)
+  Phone                 String?
   functionalArea        String
-  OrganizationalLevel   String
+  organizationalLevel   String @default("Middle Management")
   leadershipGrowthArea1 String
-  leadershipGrowthArea2 String
+  leadershipGrowthArea2 String?
   company Company       @relation(fields: [companyId], references: [id])
   companyId             Int
 }

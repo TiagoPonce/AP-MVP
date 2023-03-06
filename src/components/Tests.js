@@ -1,8 +1,16 @@
 import React from 'react'
 import Image from 'next/image'
 import checkSquare from 'public/check-square.png'
+import { useContext } from "react";
+import AppContext from "../context/AppContext"
+import Modal from './Modal';
+import LeaderForm from './LeaderForm';
 
 function Tests() {
+
+  const context = useContext(AppContext);
+
+  
   return (
     <div className=" w-[1024px] h-[468px] bg-white p-4 flex flex-col gap-4">
         <div className="flex justify-between items-center border-b-2 p-2 border-black">
@@ -11,6 +19,9 @@ function Tests() {
             </div>
             <div className="group-bottons flex text-slate-900">
                 <button
+                onClick={ () => {
+                  context.setShowModal(true);
+                } }
                 className=" w-[214px] text-lg border-2 tracking-wider hover:bg-slate-200 rounded-xl p-2 mr-6 flex justify-around items-center"
                 >
                   <Image 
@@ -19,6 +30,7 @@ function Tests() {
                   Adcionar Lider
                 </button>
                 <button
+                onClick={() => context.setShowModal(true)}
                 className="w-[214px] text-lg border-2 tracking-wider hover:bg-slate-200 rounded-xl justify-around p-2 mr-6 flex  items-center"
                 >
                   <Image 
@@ -107,6 +119,9 @@ function Tests() {
               </div>
           </div>
         </div>
+        <Modal>
+          <LeaderForm />
+        </Modal>
     </div>
   )
 }

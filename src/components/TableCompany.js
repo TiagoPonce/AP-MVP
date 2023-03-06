@@ -5,6 +5,8 @@ import AppContext from "../context/AppContext"
 import { useContext, useEffect, useState } from "react"
 import { useSession } from "next-auth/react";
 import axiosInstance from "@/axios/instance";
+import Modal from "./Modal"
+import FormsComponent from "./FormsComponent"
 
 export default function TableCompany() {
     const context = useContext(AppContext);
@@ -17,9 +19,9 @@ export default function TableCompany() {
         .then((response) => setCompanys(response.data.data))
     }, [])
 
-    console.log(companys)
+ 
     return (
-        <div className="h-[400px] w-[1000px] bg-white rounded-lg m-10 flex flex-col gap-8 p-2">
+        <div className="min-h-[400px] min-w-[1000px] bg-white rounded-lg m-10 flex flex-col gap-8 p-2">
             <div className="flex w-full items-center justify-between pl-10 pr-10 pb-2 border-b-black border-solid border-b-2">
                 <p>Empresas</p>
                 <button
@@ -76,6 +78,9 @@ export default function TableCompany() {
                     }
                 </tbody>
             </table>
+            <Modal>
+                <FormsComponent />
+            </Modal>
         </div>
     )
 }

@@ -33,7 +33,7 @@ async function main() {
       role: 'coach'
     },
   })
-  console.log({ alice, bob, coach })
+ 
 
   const Company1 = await prisma.company.upsert({
     where: { id: 1 },
@@ -47,7 +47,6 @@ async function main() {
     }
   });
 
-  console.log({ Company1 })
 
   const Leader1 = await prisma.leader.upsert({
     where: { id: 1 },
@@ -57,12 +56,10 @@ async function main() {
       lastName: 'Alves',
       age: 25,
       gender: 'Female',
-      ethnicBackground: 'American',
       country: 'Brasil',
       city: 'Brasília - DF',
       email: 'julia@email.com',
       Phone: '61988888888',
-      surveyLanguage: 'Portugues',
       functionalArea: '',
       OrganizationalLevel: '',
       leadershipGrowthArea1: '',
@@ -71,7 +68,6 @@ async function main() {
     }
   });
 
-  console.log({ Leader1 });
 
   const Employee1 = await prisma.employee.upsert({
     where: { id: 1 },
@@ -105,7 +101,6 @@ async function main() {
     }
   });
 
-  console.log({ Employee1, Employee2 })
 }
 main()
   .then(async () => {

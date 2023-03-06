@@ -1,23 +1,18 @@
 import Footer from "@/components/Footer";
-import FormsComponent from "@/components/FormsComponent";
 import Header from "@/components/Header";
 import SideBar from "@/components/SideBar";
 import { useSession } from "next-auth/react";
 import { Fragment, useEffect } from "react";
 import Router from 'next/router';
-import TableCompany from "@/components/TableCompany";
-
-import React, { useState } from "react";
-import Modal from "@/components/Modal";
+import React from "react";
 import Tests from "@/components/Tests";
 import AppContext from "@/context/AppContext";
 import { useContext } from "react";
-import axiosInstance from "@/axios/instance";
+import TableCompany from "@/components/TableCompany";
 
 
 export default function Dashboard() {
     const { status, data } = useSession();
-    const [showModal, setShowModal] = useState(false);
     
     const context = useContext(AppContext);
     
@@ -29,7 +24,9 @@ export default function Dashboard() {
         } else if (renderPage === "empresas") {
             return <TableCompany />
         }
-        return <TableCompany />
+
+
+        return <></>
     }
 
     useEffect(() => {
@@ -58,9 +55,6 @@ export default function Dashboard() {
                 </div>
                 <Footer />
             </div>
-            <Modal>
-                <FormsComponent />
-            </Modal>
             </Fragment>
         )
 }
