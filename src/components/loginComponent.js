@@ -19,8 +19,6 @@ export default function Login() {
             password
         });
 
-        console.log(res);
-
         if (res.ok === true) {
             Router.replace("/dashboard")
         }
