@@ -6,8 +6,7 @@ import { useSession } from "next-auth/react";
 
 export default function Header() {
     const { data  } = useSession();
-    console.log(data)
-
+    
     return (
         <header className="w-screen fixed border-2 z-20 border-b-slate-600 h-20 bg-white flex justify-between items-center p-4">
             <div className="ml-14">
