@@ -28,6 +28,7 @@ export default function Dashboard() {
         } else if (renderPage === "empresas") {
             return <TableCompany />
         }
+
         return <TableCompany />
     }
 
