@@ -9,7 +9,7 @@ services:
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: 123abc
-      POSTGRES_DB: orange-db
+      POSTGRES_DB: ap
     ports:
       - "5432:5432"
   pgadmin:

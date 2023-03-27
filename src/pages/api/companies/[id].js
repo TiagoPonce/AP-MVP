@@ -17,6 +17,7 @@ export default async function handler(req, res) {
                     id: Number(id)
                 },
                 select: {
+                    id: true,
                     name: true,
                     country: true,
                     city: true,
