@@ -73,6 +73,10 @@ function Tests() {
           </div>
           <div className="group-bottons flex text-slate-900">
             <button
+              onClick={() => { 
+                context.setShowModal(true) 
+                context.setTypeModal('lider')
+              }}
               className=" w-[214px] text-lg border-2 tracking-wider hover:bg-slate-200 rounded-xl p-2 mr-6 flex justify-around items-center"
             >
               <Image
@@ -80,6 +84,7 @@ function Tests() {
                 alt="check"
               />
               Adcionar Lider
+              
             </button>
             <button
               className="w-[214px] text-lg border-2 tracking-wider hover:bg-slate-200 rounded-xl justify-around p-2 mr-6 flex  items-center"

@@ -1,8 +1,6 @@
 import React from 'react';
 import AppContext from '../context/AppContext';
 import { useContext } from 'react';
-import TableCompany from './TableCompany';
-import FormsComponent from './FormsComponent';
 
 function Modal({children}) {
 

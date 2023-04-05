@@ -12,16 +12,27 @@ import Modal from "@/components/Modal";
 import Tests from "@/components/Tests";
 import AppContext from "@/context/AppContext";
 import { useContext } from "react";
+import AddLeader from "@/components/AddLeader";
 
 
 export default function Dashboard() {
-    const { status, data } = useSession();
-    const [showModal, setShowModal] = useState(false);
-    
     const context = useContext(AppContext);
+
+    const { status, data } = useSession();
+
+    function renderModal() {
+        const { typeModal } = context;
+
+        if ( typeModal === 'empresas' )
+            return <FormsComponent />
+        if ( typeModal === 'lider' )
+            return <AddLeader />
+    }
+    
     
     function renderMenu() {
         const { renderPage } = context;
+
 
         if (renderPage === "testes") {
             return <Tests />
@@ -59,7 +70,7 @@ export default function Dashboard() {
                 <Footer />
             </div>
             <Modal>
-                <FormsComponent />
+                { renderModal() }
             </Modal>
             </Fragment>
         )

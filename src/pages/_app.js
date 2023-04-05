@@ -10,8 +10,20 @@ import '@/axios/global.js'
 export default function App({ Component, pageProps }) {
   const [showModal, setShowModal] = useState(false);
   const [renderPage, setRenderPage] = useState('')
+  const [typeModal, setTypeModal] = useState('');
+
+
+  const valuesContext = {
+    showModal,
+    setShowModal,
+    renderPage,
+    setRenderPage,
+    typeModal,
+    setTypeModal,
+  }
+
   return (
-    <AppContext.Provider value={{showModal, setShowModal, renderPage, setRenderPage}}>
+    <AppContext.Provider value={valuesContext}>
       <SessionProvider session={ pageProps.session }>
         <Component {...pageProps} />
       </SessionProvider>
