@@ -25,6 +25,8 @@ export default function Dashboard() {
             return <TableCompany />
         }
 
+        return <TableCompany />
+
 
         return <></>
     }
