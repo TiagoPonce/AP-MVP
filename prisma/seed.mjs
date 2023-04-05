@@ -61,7 +61,7 @@ async function main() {
       email: 'julia@email.com',
       Phone: '61988888888',
       functionalArea: '',
-      OrganizationalLevel: '',
+      organizationalLevel: '',
       leadershipGrowthArea1: '',
       leadershipGrowthArea2: '',
       companyId: 1
